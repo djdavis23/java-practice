@@ -11,6 +11,11 @@ public class MathAlgorithms {
 		String longFactorial = bigFactorial(factorialCheck);
 		System.out.println("Checking factorial for " + factorialCheck + ": " + myFactorial);
 		System.out.println("Checking bigFactorial for " + factorialCheck + ": " + longFactorial);
+		int fibTest = 10;
+		long myFib = fibonacci(fibTest);
+		System.out.println("Checking fibonacci term " + fibTest + ":  " + myFib);
+	
+	
 	}
 	
 	public static boolean isNumPrime(int number) {
@@ -70,7 +75,29 @@ public class MathAlgorithms {
 		return resultSize;
 	}
 	
+	public static long fibonacci(int n) {
+		long[] fib = new long[n+1];
+		fib[0] = 0;
+		fib[1] = 1;
+		for (int i = 2; i <= n; i++) {
+			fib[i] = fib[i-1] + fib[i-2];
+		}
+		return fib[n];
+	}
 	
+	public static int[] polynomialMultiply(int[] a, int[] b, int n) {
+		int[] product = new int[2*n - 1];
+		for(int i = 0; i < product.length; i++) {
+			product[i] = 0;
+		}
+		for (int j = 0; j < n; j++) {
+			for (int k = 0; k < n; k++) {
+				product[j + k] = product[j + k] + (a[j] * b[k]);
+			}
+		}
+		return product;
+	}
+}
 	
 
-}
+
